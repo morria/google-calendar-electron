@@ -1,6 +1,9 @@
 .PHONY: all clean npm
 
-all: target/google-calendar-darwin-x64/google-calendar.app
+s+ = $(subst \ ,+,$1)
++s = $(subst +,\ ,$1)
+
+all: $(call s+,target/Google Calendar.dmg)
 
 clean:
 	rm -rf target
@@ -10,7 +13,7 @@ npm:
 	npm install
 	npm install electron-packager -g
 
-target/google-calendar-darwin-x64/google-calendar.app: npm target/assets/icons/mac/google_calendar.icns package.json main.js
+$(call s+,target/Google\ Calendar-darwin-x64/Google\ Calendar.app): npm target/assets/icons/mac/google_calendar.icns package.json main.js
 	mkdir -p target/
 	electron-packager . "Google Calendar" \
 		--overwrite \
@@ -26,3 +29,11 @@ target/google-calendar-darwin-x64/google-calendar.app: npm target/assets/icons/m
 target/assets/icons/mac/google_calendar.icns: src/google_calendar.iconset
 	mkdir -p target/assets/icons/mac/
 	iconutil -c icns ./src/google_calendar.iconset -o target/assets/icons/mac/google_calendar.icns
+
+$(call s+,target/Google Calendar.dmg): $(call s+,target/Google\ Calendar-darwin-x64/Google\ Calendar.app)
+	hdiutil create \
+		-volname "Google Calendar" \
+		-srcfolder "target/Google Calendar-darwin-x64" \
+		-ov \
+		-format UDZO \
+		"target/Google Calendar.dmg"
