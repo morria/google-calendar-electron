@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean npm
 
 all: target/google-calendar-darwin-x64/google-calendar.app
 
@@ -6,11 +6,20 @@ clean:
 	rm -rf target
 	rm -rf node_modules
 
-target/google-calendar-darwin-x64/google-calendar.app: target/assets/icons/mac/google_calendar.icns
+npm:
 	npm install
 	npm install electron-packager -g
+
+target/google-calendar-darwin-x64/google-calendar.app: npm target/assets/icons/mac/google_calendar.icns package.json main.js
 	mkdir -p target/
-	electron-packager . --overwrite --platform=darwin --arch=x64 --icon=target/assets/icons/mac/google_calendar.icns --prune=true --out=target
+	electron-packager . \
+		--overwrite \
+		--platform=darwin \
+		--arch=x64 \
+		--icon=target/assets/icons/mac/google_calendar.icns \
+		--prune=true \
+		--version-string.ProductName="Google Calendar" \
+		--out=target
 
 target/assets/icons/mac/google_calendar.icns: src/google_calendar.iconset
 	mkdir -p target/assets/icons/mac/
