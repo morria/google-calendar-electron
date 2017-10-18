@@ -4,7 +4,7 @@
   "description": "Google Calendar",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=target/assets/icons/mac/google_calendar.icns--prune=true --out=target --version-string.ProductName=Calendar"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [],
@@ -13,8 +13,5 @@
   "devDependencies": {
     "electron": "^1.7.9",
     "electron-packager": "^9.1.0"
-  },
-  "scripts": {
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=target/assets/icons/mac/google_calendar.icns--prune=true --out=target --version-string.ProductName=Calendar"
   }
 }

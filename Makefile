@@ -12,13 +12,15 @@ npm:
 
 target/google-calendar-darwin-x64/google-calendar.app: npm target/assets/icons/mac/google_calendar.icns package.json main.js
 	mkdir -p target/
-	electron-packager . \
+	electron-packager . "Google Calendar" \
 		--overwrite \
 		--platform=darwin \
 		--arch=x64 \
 		--icon=target/assets/icons/mac/google_calendar.icns \
 		--prune=true \
 		--version-string.ProductName="Google Calendar" \
+		--osx-sign \
+		--protocol calendar \
 		--out=target
 
 target/assets/icons/mac/google_calendar.icns: src/google_calendar.iconset
