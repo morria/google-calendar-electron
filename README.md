@@ -9,7 +9,7 @@ window.
 
 # Installing
 
-Check out the [1.0.0 Release](https://github.com/morria/google-calendar-electron/releases/tag/1.0.1)
+Check out the [1.0.1 Release](https://github.com/morria/google-calendar-electron/releases/tag/1.0.1)
 to [download a DMG containing a pre-built app](https://github.com/morria/google-calendar-electron/releases/download/1.0.1/Google.Calendar.dmg).
 
 # Building and Running
