@@ -43,11 +43,11 @@ function createWindow () {
 	  label: "Application",
 	  submenu: [
 	  { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
-    { type: "separator" },
-    { label: "Hide", accelerator: "Command+H", click: function() { app.hide(); }},
-    { type: "separator" },
-    { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }},
-    { type: "separator" }
+          { type: "separator" },
+	  { label: "Hide", accelerator: "Command+H", click: function() { app.hide(); }},
+	  { type: "separator" },
+	  { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }},
+	  { type: "separator" }
 	  ]}, {
 		  label: "Edit",
 		  submenu: [
