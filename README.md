@@ -14,7 +14,7 @@ to [download a DMG containing a pre-built app](https://github.com/morria/google-
 
 # Building and Running
 
-To build the app use the Makefile.
+To build the app use the Makefile (Mac only).
 
 ```sh
 make
